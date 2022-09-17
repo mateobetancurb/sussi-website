@@ -47,3 +47,8 @@ body {
   font-weight: 700;
   text-align: center;
 }
+
+.main__link--portfolio:hover {
+  cursor: pointer;
+  
+}
