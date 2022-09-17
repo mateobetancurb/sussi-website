@@ -3,3 +3,12 @@
     width: 13%;
   }
 }
+
+@media(min-width: 768px) {
+  .main__link--portfolio:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 300ms;
+    width: 13%;
+  }
+}
