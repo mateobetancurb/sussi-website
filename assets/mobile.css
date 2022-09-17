@@ -1,7 +1,8 @@
 body {
   background-color: #fce7fc;
   font-family: "Montserrat", sans-serif;
-  max-width: 320px;
+  margin: 0 auto;
+  max-width: 90vw;
 }
 
 .header {
@@ -21,10 +22,25 @@ body {
   margin-bottom: 0;
 }
 
-.main__p--question {
+.header__section--roles {
+  margin-bottom: 20px;
+  margin-top: 20px;
   text-align: center;
+}
+
+.header__p--role1 {
+  margin-bottom: 0;
+}
+
+.header__p--role2 {
+  margin-top: 3px;
+}
+
+.main__p--question {
   font-weight: 700;
-  margin-top: 50px;
+  margin-bottom: 0;
+  margin-top: 30px;
+  text-align: center;
 }
 
 .main__arrowdown {
@@ -36,19 +52,56 @@ body {
 
 
 .main__link--portfolio {
-  display: block;
   background-color: whitesmoke;
-  padding: 15px;
-  max-width: 80%;
-  margin: 0 auto;
   border-radius: 8px;
-  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: #000000;
+  display: block;
   font-weight: 700;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 15px;
   text-align: center;
+  text-decoration: none;
 }
 
 .main__link--portfolio:hover {
   cursor: pointer;
-  
+  transform: scale(1.1);
+  transition: 300ms;
+  width: 70%;
+}
+
+.footer__section--links {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.footer__link--tiktok:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 300ms;
+}
+
+.footer__link--linkedin:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 300ms;
+}
+
+.footer__img--tiktok {
+  width: 28px;
+}
+
+.footer__img--linkedin {
+  width: 28px;
+}
+
+.footer__p {
+  font-size: 12px;
+  font-weight: 100;
+  margin-top: 50px;
+  text-align: center;
 }
