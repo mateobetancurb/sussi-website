@@ -74,7 +74,7 @@ body {
 
 .footer__section--links {
   display: flex;
-  gap: 10px;
+  gap: 30px;
   justify-content: center;
   margin-top: 50px;
 }
