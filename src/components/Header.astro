@@ -1,7 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Container from "./Container.astro";
-import Icon from "./Icon.astro";
 import { getTranslations, languages, type Lang } from "../i18n";
 
 interface Props {
@@ -17,7 +16,7 @@ const localeUrls: Record<Lang, string> = {
 };
 ---
 
-<header class="bg-linen w-full top-0 z-50">
+<header class="bg-linen w-full top-0 z-50 relative" data-site-header>
   <Container class="flex justify-between items-center py-6">
     <a
       href={localeUrls[lang]}
@@ -106,11 +105,239 @@ const localeUrls: Record<Lang, string> = {
         }
       </div>
       <button
-        class="md:hidden text-primary cursor-pointer"
+        id="mobile-menu-button"
+        class="mobile-menu-button md:hidden text-primary cursor-pointer"
         aria-label={t.header.menuLabel}
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        data-mobile-menu-button
+        data-open-label={t.header.menuLabel}
+        data-close-label={t.header.closeMenuLabel}
       >
-        <Icon name="menu" />
+        <span
+          class="material-symbols-outlined mobile-menu-icon mobile-menu-icon--open"
+          aria-hidden="true">menu</span
+        >
+        <span
+          class="material-symbols-outlined mobile-menu-icon mobile-menu-icon--close"
+          aria-hidden="true">close</span
+        >
       </button>
     </div>
   </Container>
+
+  <div class="mobile-menu-layer md:hidden" data-mobile-menu-layer>
+    <Container>
+      <nav
+        id="mobile-menu"
+        class="mobile-menu-panel"
+        aria-hidden="true"
+        data-mobile-menu
+        data-state="closed"
+        inert
+      >
+        {
+          t.header.nav.map((link) => (
+            <a
+              class="mobile-menu-link"
+              href={link.href}
+              data-mobile-menu-link
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+    </Container>
+  </div>
 </header>
+
+<script>
+  const header = document.querySelector("[data-site-header]");
+  const button = document.querySelector("[data-mobile-menu-button]");
+  const menu = document.querySelector("[data-mobile-menu]");
+  const links = document.querySelectorAll("[data-mobile-menu-link]");
+  const desktopQuery = window.matchMedia("(min-width: 768px)");
+
+  if (header && button instanceof HTMLButtonElement && menu) {
+    const setMenuState = (isOpen: boolean) => {
+      button.setAttribute("aria-expanded", String(isOpen));
+      button.setAttribute(
+        "aria-label",
+        isOpen ? button.dataset.closeLabel || "" : button.dataset.openLabel || "",
+      );
+      menu.setAttribute("data-state", isOpen ? "open" : "closed");
+      menu.setAttribute("aria-hidden", String(!isOpen));
+
+      if (isOpen) {
+        menu.removeAttribute("inert");
+      } else {
+        menu.setAttribute("inert", "");
+      }
+    };
+
+    const closeMenu = () => setMenuState(false);
+    const toggleMenu = () => {
+      setMenuState(button.getAttribute("aria-expanded") !== "true");
+    };
+
+    button.addEventListener("click", toggleMenu);
+
+    links.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (
+        button.getAttribute("aria-expanded") === "true" &&
+        event.target instanceof Node &&
+        !header.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    desktopQuery.addEventListener("change", (event) => {
+      if (event.matches) {
+        closeMenu();
+      }
+    });
+  }
+</script>
+
+<style>
+  .mobile-menu-button {
+    position: relative;
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 1px solid var(--color-hairline);
+    border-radius: 9999px;
+    transition:
+      transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
+      border-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .mobile-menu-button:active {
+    transform: scale(0.97);
+  }
+
+  .mobile-menu-icon {
+    grid-area: 1 / 1;
+    transition:
+      opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .mobile-menu-button[aria-expanded="true"] .mobile-menu-icon--open,
+  .mobile-menu-button[aria-expanded="false"] .mobile-menu-icon--close {
+    opacity: 0;
+    transform: rotate(-18deg) scale(0.92);
+  }
+
+  .mobile-menu-button[aria-expanded="true"] .mobile-menu-icon--close,
+  .mobile-menu-button[aria-expanded="false"] .mobile-menu-icon--open {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  .mobile-menu-layer {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    z-index: 40;
+    pointer-events: none;
+  }
+
+  .mobile-menu-panel {
+    display: grid;
+    gap: 0.25rem;
+    padding: 0.75rem;
+    border: 1px solid var(--color-hairline);
+    border-radius: 1.5rem;
+    background: color-mix(in srgb, var(--color-linen) 94%, white);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.5rem) scale(0.98);
+    transform-origin: top right;
+    transition:
+      opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .mobile-menu-panel[data-state="open"] {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .mobile-menu-layer:has(.mobile-menu-panel[data-state="open"]) {
+    pointer-events: auto;
+  }
+
+  .mobile-menu-link {
+    border-radius: 9999px;
+    color: var(--color-on-surface-variant);
+    cursor: pointer;
+    font-family: var(--font-label-caps);
+    font-size: var(--text-label-caps);
+    font-weight: var(--text-label-caps--font-weight);
+    letter-spacing: 0.1em;
+    line-height: var(--text-label-caps--line-height);
+    padding: 0.875rem 1rem;
+    text-transform: uppercase;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .mobile-menu-link:active {
+    transform: scale(0.98);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .mobile-menu-button:hover {
+      border-color: var(--color-terracotta);
+      color: var(--color-adobe);
+    }
+
+    .mobile-menu-link:hover {
+      background: var(--color-parchment);
+      color: var(--color-primary);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .mobile-menu-button,
+    .mobile-menu-layer {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu-button,
+    .mobile-menu-icon,
+    .mobile-menu-panel,
+    .mobile-menu-link {
+      transition-duration: 120ms;
+    }
+
+    .mobile-menu-panel,
+    .mobile-menu-panel[data-state="open"],
+    .mobile-menu-button[aria-expanded="true"] .mobile-menu-icon--open,
+    .mobile-menu-button[aria-expanded="false"] .mobile-menu-icon--close,
+    .mobile-menu-button[aria-expanded="true"] .mobile-menu-icon--close,
+    .mobile-menu-button[aria-expanded="false"] .mobile-menu-icon--open {
+      transform: none;
+    }
+  }
+</style>
