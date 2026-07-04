@@ -11,7 +11,7 @@ type Props = HTMLAttributes<"a"> &
 const { variant = "primary", href, class: className, ...rest } = Astro.props;
 
 const base =
-  "rounded-full px-8 py-4 font-button text-button transition-all duration-300 active:scale-95 flex items-center justify-center gap-2";
+  "cursor-pointer rounded-full px-8 py-4 font-button text-button transition-all duration-300 active:scale-95 flex items-center justify-center gap-2";
 
 const variants: Record<Variant, string> = {
   primary: "bg-adobe text-linen hover:opacity-90",
