@@ -4,6 +4,14 @@ import Container from "./Container.astro";
 import Button from "./Button.astro";
 import Icon from "./Icon.astro";
 import heroPortrait from "../assets/img/hero-portrait.jpg";
+import { getTranslations, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang).hero;
 ---
 
 <section class="py-section-padding bg-linen overflow-hidden" id="hero">
@@ -12,20 +20,18 @@ import heroPortrait from "../assets/img/hero-portrait.jpg";
       <span
         class="text-terracotta font-label-caps text-label-caps uppercase tracking-[0.2em] block"
       >
-        Estrategia · Producción · Gestión de contenido digital
+        {t.eyebrow}
       </span>
       <h1
         class="font-display-lg text-display-lg-mobile md:text-display-lg text-espresso"
       >
-        Creo en tu marca. Logremos que los demás también.
+        {t.title}
       </h1>
       <p class="text-soft-espresso font-body-lg max-w-md">
-        Soy Sussana, estratega digital con más de 5 años transformando historias
-        en activos digitales que conectan, venden y perduran. Mi enfoque combina
-        la rigurosidad analítica con una estética editorial cálida y humana.
+        {t.intro}
       </p>
       <Button href="#contact" class="w-fit group">
-        ¿Hablamos?
+        {t.cta}
         <Icon name="arrow_forward" class="transition-transform group-hover:translate-x-1" />
       </Button>
     </div>
@@ -35,7 +41,7 @@ import heroPortrait from "../assets/img/hero-portrait.jpg";
       >
         <Image
           src={heroPortrait}
-          alt="Retrato editorial de Sussana Correa en un estudio luminoso de estética cálida y natural."
+          alt={t.imageAlt}
           loading="eager"
           fetchpriority="high"
           class="w-full h-full object-cover"

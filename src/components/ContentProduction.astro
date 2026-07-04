@@ -7,25 +7,17 @@ import ugc1 from "../assets/img/ugc-1.jpg";
 import ugc2 from "../assets/img/ugc-2.jpg";
 import ugc3 from "../assets/img/ugc-3.jpg";
 import ugc4 from "../assets/img/ugc-4.jpg";
+import { getTranslations, type Lang } from "../i18n";
 
-const clips = [
-  {
-    img: ugc1,
-    alt: "Manos sirviendo una bebida caliente en una taza de cerámica en un café acogedor.",
-  },
-  {
-    img: ugc2,
-    alt: "Primer plano de una tela texturizada acariciada por una mano bajo luz natural.",
-  },
-  {
-    img: ugc3,
-    alt: "Plato emplatado en un restaurante de alta cocina con iluminación cálida y envolvente.",
-  },
-  {
-    img: ugc4,
-    alt: "Espacio de trabajo moderno con laptop, libreta y café bajo luz suave.",
-  },
-];
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang).contentProduction;
+
+const clipImages = [ugc1, ugc2, ugc3, ugc4];
+const clips = clipImages.map((img, i) => ({ img, alt: t.clipAlts[i] }));
 ---
 
 <section class="py-section-padding bg-linen">
@@ -34,14 +26,13 @@ const clips = [
       <span
         class="text-terracotta font-label-caps text-label-caps uppercase tracking-widest"
       >
-        Cuando la cámara la cargo yo
+        {t.eyebrow}
       </span>
       <h2 class="font-display-lg text-headline-md text-espresso">
-        Contenido con Ojo Crítico
+        {t.heading}
       </h2>
       <p class="text-soft-espresso font-body-lg">
-        Más allá de la estrategia, me apasiona la ejecución. Creo contenido
-        dinámico (UGC) que se siente real, cercano y estéticamente impecable.
+        {t.intro}
       </p>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
@@ -71,10 +62,10 @@ const clips = [
     </div>
     <div class="text-center">
       <p class="font-body-md text-soft-espresso mb-6">
-        ¿Tu marca necesita una voz así?
+        {t.ctaQuestion}
       </p>
       <Button href="#contact" class="mx-auto w-fit">
-        Escríbeme <Icon name="arrow_outward" />
+        {t.ctaButton} <Icon name="arrow_outward" />
       </Button>
     </div>
   </Container>
