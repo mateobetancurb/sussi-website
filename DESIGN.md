@@ -195,3 +195,7 @@ In place of horizontal rules, use a centered "star" glyph or the brand monogram 
 ### Navigation
 
 The header should be minimalist and centered, with the "Header Name" in the serif typeface. Navigation links use the **label-caps** style with generous horizontal spacing.
+
+### Scrollbars
+
+Scrollbars should stay quiet and tactile, matching the paper-like surface system. Use **Linen** or **Parchment** for the track and **Adobe** (`#8B4A31`) for the thumb. Keep the thumb rounded and comfortably wide, with no shadows, gradients, or high-contrast treatment.
