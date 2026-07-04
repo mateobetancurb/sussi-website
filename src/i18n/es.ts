@@ -62,7 +62,7 @@ const es: UIStrings = {
     featuredAlt:
       "Viajero ante un atardecer andino entre montañas neblinosas — turismo sostenible MUTA Travel.",
     featuredQuote:
-      "\"Sussi logró traducir nuestros valores en imágenes y palabras que realmente resuenan con nuestros clientes.\"",
+      '"Sussi logró traducir nuestros valores en imágenes y palabras que realmente resuenan con nuestros clientes."',
     statLabels: ["Engagement Rate", "Nuevos Seguidores Orgánicos"],
     cta: "¿Tu marca podría estar aquí? Cuéntame tu historia",
     cases: [
@@ -94,7 +94,7 @@ const es: UIStrings = {
     moonarcaBody:
       "Dirección creativa y gestión de comunidad para una marca de calzado artesanal. Enfocado en resaltar el valor del proceso hecho a mano.",
     quote:
-      "\"El archivo no es solo pasado, es la base de la experiencia que hoy pongo a tu disposición.\"",
+      '"El archivo no es solo pasado, es la base de la experiencia que hoy pongo a tu disposición."',
     alts: [
       "Botas de cuero artesanales sobre suelo de piedra bajo luz dramática — Moonarca.",
       "Manos trabajando cuero fino en un taller — la esencia hecha a mano de Moonarca.",
