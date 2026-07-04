@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "pnpm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      astro-stack:
+        patterns:
+          - "astro"
+          - "@astrojs/*"
+      lint-format-tools:
+        patterns:
+          - "oxlint"
+          - "oxfmt"
