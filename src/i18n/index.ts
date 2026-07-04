@@ -31,6 +31,12 @@ export interface Testimonial {
   author: string;
 }
 
+export const whatsappPhoneNumber = "573104647152";
+
+export function getWhatsappUrl(message: string): string {
+  return `https://wa.me/${whatsappPhoneNumber}?text=${encodeURIComponent(message)}`;
+}
+
 /**
  * Shape every locale file must implement. Because both `es.ts` and `en.ts` are
  * typed as `UIStrings`, a missing or misnamed key is a compile-time error —
@@ -38,6 +44,11 @@ export interface Testimonial {
  */
 export interface UIStrings {
   meta: { title: string; description: string };
+  floatingWhatsapp: {
+    label: string;
+    ariaLabel: string;
+    message: string;
+  };
   header: { nav: NavLink[]; menuLabel: string };
   hero: {
     eyebrow: string;

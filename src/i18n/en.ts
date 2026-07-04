@@ -6,6 +6,11 @@ const en: UIStrings = {
     description:
       "Digital strategist with over 5 years of experience transforming brands through content with purpose.",
   },
+  floatingWhatsapp: {
+    label: "WhatsApp",
+    ariaLabel: "Message Sussana on WhatsApp",
+    message: "Hi Sussana, I saw your website and would like to talk about my content strategy.",
+  },
   header: {
     nav: [
       { label: "Services", href: "#services" },
