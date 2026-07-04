@@ -1,13 +1,20 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Container from "./Container.astro";
 import Icon from "./Icon.astro";
+import { getTranslations, languages, type Lang } from "../i18n";
 
-const links = [
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "Work", href: "#services" },
-  { label: "Strategy", href: "#strategy" },
-  { label: "Contact", href: "#contact" },
-];
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+
+const localeUrls: Record<Lang, string> = {
+  es: getRelativeLocaleUrl("es", ""),
+  en: getRelativeLocaleUrl("en", ""),
+};
 ---
 
 <header class="bg-linen w-full top-0 z-50">
@@ -15,20 +22,50 @@ const links = [
     <span class="font-display-lg text-headline-sm text-primary tracking-tight">
       Sussana Correa
     </span>
-    <div class="hidden md:flex gap-8 items-center">
-      {
-        links.map((link) => (
-          <a
-            class="text-on-surface-variant font-label-caps text-label-caps uppercase tracking-widest hover:text-primary transition-colors"
-            href={link.href}
-          >
-            {link.label}
-          </a>
-        ))
-      }
+    <div class="flex items-center gap-8">
+      <div class="hidden md:flex gap-8 items-center">
+        {
+          t.header.nav.map((link) => (
+            <a
+              class="text-on-surface-variant font-label-caps text-label-caps uppercase tracking-widest hover:text-primary transition-colors"
+              href={link.href}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+      <!-- Language switcher -->
+      <div
+        class="flex items-center gap-2 font-label-caps text-label-caps uppercase tracking-widest"
+      >
+        {
+          languages.map((code, index) => (
+            <>
+              {index > 0 && (
+                <span class="text-hairline" aria-hidden="true">
+                  |
+                </span>
+              )}
+              <a
+                href={localeUrls[code]}
+                aria-current={code === lang ? "true" : undefined}
+                class:list={[
+                  "transition-colors hover:text-primary",
+                  code === lang
+                    ? "text-primary"
+                    : "text-on-surface-variant",
+                ]}
+              >
+                {code}
+              </a>
+            </>
+          ))
+        }
+      </div>
+      <button class="md:hidden text-primary" aria-label={t.header.menuLabel}>
+        <Icon name="menu" />
+      </button>
     </div>
-    <button class="md:hidden text-primary" aria-label="Abrir menú">
-      <Icon name="menu" />
-    </button>
   </Container>
 </header>

@@ -1,0 +1,35 @@
+---
+import type { Lang } from "../i18n";
+import Layout from "../layouts/Layout.astro";
+import Header from "./Header.astro";
+import Hero from "./Hero.astro";
+import SeparatorStar from "./SeparatorStar.astro";
+import Services from "./Services.astro";
+import WorkCases from "./WorkCases.astro";
+import Archive from "./Archive.astro";
+import ContentProduction from "./ContentProduction.astro";
+import Testimonials from "./Testimonials.astro";
+import Contact from "./Contact.astro";
+import Footer from "./Footer.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<Layout lang={lang}>
+  <Header lang={lang} />
+  <main>
+    <Hero lang={lang} />
+    <SeparatorStar />
+    <Services lang={lang} />
+    <WorkCases lang={lang} />
+    <Archive lang={lang} />
+    <ContentProduction lang={lang} />
+    <Testimonials lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</Layout>

@@ -3,6 +3,14 @@ import { Image } from "astro:assets";
 import Container from "./Container.astro";
 import moonarca1 from "../assets/img/archive-moonarca-1.jpg";
 import moonarca2 from "../assets/img/archive-moonarca-2.jpg";
+import { getTranslations, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang).archive;
 
 const brands = ["Brand A", "Brand B", "Brand C"];
 ---
@@ -12,22 +20,20 @@ const brands = ["Brand A", "Brand B", "Brand C"];
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
       <div>
         <h2 class="font-headline-md text-headline-md text-espresso mb-6">
-          Trabajos anteriores
+          {t.heading}
         </h2>
         <div class="space-y-8">
           <div class="border-l-2 border-terracotta pl-6 py-2">
-            <h4 class="font-headline-sm text-espresso">Moonarca (Moda)</h4>
+            <h4 class="font-headline-sm text-espresso">{t.moonarcaTitle}</h4>
             <p class="text-soft-espresso font-body-md mt-2">
-              Dirección creativa y gestión de comunidad para una marca de
-              calzado artesanal. Enfocado en resaltar el valor del proceso hecho
-              a mano.
+              {t.moonarcaBody}
             </p>
           </div>
           <div class="grid grid-cols-2 gap-4">
             <div class="aspect-[3/4] bg-linen rounded-2xl overflow-hidden">
               <Image
                 src={moonarca1}
-                alt="Botas de cuero artesanales sobre suelo de piedra bajo luz dramática — Moonarca."
+                alt={t.alts[0]}
                 loading="lazy"
                 class="w-full h-full object-cover"
               />
@@ -35,7 +41,7 @@ const brands = ["Brand A", "Brand B", "Brand C"];
             <div class="aspect-[3/4] bg-linen rounded-2xl overflow-hidden">
               <Image
                 src={moonarca2}
-                alt="Manos trabajando cuero fino en un taller — la esencia hecha a mano de Moonarca."
+                alt={t.alts[1]}
                 loading="lazy"
                 class="w-full h-full object-cover"
               />
@@ -45,8 +51,7 @@ const brands = ["Brand A", "Brand B", "Brand C"];
       </div>
       <div class="space-y-4">
         <p class="text-soft-espresso italic font-body-lg">
-          "El archivo no es solo pasado, es la base de la experiencia que hoy
-          pongo a tu disposición."
+          {t.quote}
         </p>
         <div class="grid grid-cols-3 gap-2">
           {
