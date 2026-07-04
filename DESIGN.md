@@ -48,6 +48,10 @@ colors:
   background: "#fff8f6"
   on-background: "#211a17"
   surface-variant: "#eee0db"
+  whatsapp: "#1f7a4f"
+  whatsapp-hover: "#17613e"
+  whatsapp-on: "#fff8f6"
+  whatsapp-border: "#9fcab5"
 typography:
   display-lg:
     fontFamily: Literata
@@ -129,6 +133,7 @@ The palette is derived from natural earth tones, specifically avoiding the harsh
 - **Terracotta (#C97B5A):** The communicative accent. Used for iconography, decorative separators, and highlights.
 - **Adobe (#8B4A30):** The high-contrast functional color. Reserved for call-to-action elements and primary interactive states.
 - **Espresso (#2A2420):** High-legibility text color with a warm undertone to maintain harmony with the background.
+- **WhatsApp (#1F7A4F):** Reserved for the floating WhatsApp contact action and its related states.
 
 ## Typography
 
