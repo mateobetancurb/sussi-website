@@ -19,9 +19,51 @@ const localeUrls: Record<Lang, string> = {
 
 <header class="bg-linen w-full top-0 z-50">
   <Container class="flex justify-between items-center py-6">
-    <span class="font-display-lg text-headline-sm text-primary tracking-tight">
-      Sussana Correa
-    </span>
+    <a
+      href={localeUrls[lang]}
+      class="group flex items-center gap-3"
+      aria-label="Sussana Correa"
+    >
+      <svg
+        class="size-11 shrink-0"
+        viewBox="0 0 128 128"
+        role="img"
+        aria-hidden="true"
+      >
+        <rect width="128" height="128" rx="32" fill="#f7f2ec"></rect>
+        <circle
+          cx="64"
+          cy="64"
+          r="49"
+          fill="#ede3d5"
+          stroke="#ded4c7"
+          stroke-width="2"></circle>
+        <path
+          d="M64 19.5l4.8 17.8L86.5 42 68.8 46.8 64 64.5l-4.8-17.7L41.5 42l17.7-4.7L64 19.5Z"
+          fill="#c97b5a"
+          opacity=".95"></path>
+        <text
+          x="64"
+          y="82"
+          text-anchor="middle"
+          fill="#8b4a30"
+          font-family="Literata, Georgia, 'Times New Roman', serif"
+          font-size="42"
+          font-weight="500"
+          letter-spacing="-3">SC</text
+        >
+        <path
+          d="M38 94h52"
+          stroke="#c97b5a"
+          stroke-width="3"
+          stroke-linecap="round"></path>
+      </svg>
+      <span
+        class="font-display-lg text-headline-sm text-primary tracking-tight transition-colors group-hover:text-adobe"
+      >
+        Sussana Correa
+      </span>
+    </a>
     <div class="flex items-center gap-8">
       <div class="hidden md:flex gap-8 items-center">
         {
