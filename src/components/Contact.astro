@@ -1,0 +1,45 @@
+---
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+---
+
+<section class="py-section-padding bg-linen border-t border-hairline" id="contact">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <div class="mb-12">
+      <span class="text-terracotta mb-4 block" aria-hidden="true">✦</span>
+      <h2
+        class="font-display-lg text-display-lg-mobile md:text-display-lg text-espresso mb-6"
+      >
+        Hablemos
+      </h2>
+      <p class="text-soft-espresso font-body-lg">
+        Creo profundamente en el poder de las redes cuando se usan con
+        propósito. Si estás listo para elevar tu presencia digital, hablemos de
+        cómo podemos trabajar juntos.
+      </p>
+    </div>
+    <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+      <Button href="https://wa.me/#" class="w-full md:w-auto px-12">
+        WhatsApp <Icon name="chat" />
+      </Button>
+      <Button
+        variant="secondary"
+        href="https://instagram.com/#"
+        class="w-full md:w-auto px-12"
+      >
+        Instagram <Icon name="photo_camera" />
+      </Button>
+    </div>
+    <div class="mt-20">
+      <p class="text-soft-espresso opacity-60 font-body-md">
+        O escríbeme directamente a
+      </p>
+      <a
+        class="text-espresso font-headline-sm hover:text-terracotta transition-colors"
+        href="mailto:hola@sussanacorrea.com"
+      >
+        hola@sussanacorrea.com
+      </a>
+    </div>
+  </div>
+</section>

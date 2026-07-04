@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+import Container from "./Container.astro";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+import muta from "../assets/img/case-muta-travel.jpg";
+import cmv from "../assets/img/case-cmv-hospital.jpg";
+import sabrositas from "../assets/img/case-sabrositas.jpg";
+import hotCheese from "../assets/img/case-hot-cheese.jpg";
+import monteMesa from "../assets/img/case-monte-mesa.jpg";
+import hoteleria from "../assets/img/case-hoteleria.jpg";
+
+const secondaryCases = [
+  {
+    img: cmv,
+    label: "CMV Hospital",
+    alt: "Interior cálido de una clínica veterinaria con un perro tranquilo — CMV Hospital.",
+  },
+  {
+    img: sabrositas,
+    label: "Sabrositas",
+    alt: "Primer plano editorial de snacks artesanales sobre mantel de lino — Sabrositas.",
+  },
+  {
+    img: hotCheese,
+    label: "Hot Cheese",
+    alt: "Tabla de quesos con miel y frutos secos bajo luz dorada — Hot Cheese.",
+  },
+  {
+    img: monteMesa,
+    label: "Monte & Mesa",
+    alt: "Mesa de madera en un refugio de montaña con velas y textiles cálidos — Monte & Mesa.",
+  },
+  {
+    img: hoteleria,
+    label: "Hotelería",
+    alt: "Lobby de un hotel boutique con materiales orgánicos e iluminación suave — sector hotelería.",
+  },
+];
+---
+
+<section class="py-section-padding bg-linen">
+  <Container>
+    <div class="mb-12">
+      <span
+        class="text-terracotta font-label-caps text-label-caps uppercase tracking-widest mb-2 block"
+      >
+        Marcas en las que he creado
+      </span>
+      <h2 class="font-display-lg text-headline-md text-espresso">
+        Casos de Éxito
+      </h2>
+    </div>
+
+    <!-- Featured Case: MUTA Travel -->
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 bg-parchment rounded-lg overflow-hidden border border-hairline"
+    >
+      <div class="relative h-full min-h-[400px]">
+        <Image
+          src={muta}
+          alt="Viajero ante un atardecer andino entre montañas neblinosas — turismo sostenible MUTA Travel."
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+      <div class="p-12 flex flex-col justify-center space-y-6">
+        <div>
+          <h3 class="font-display-lg text-headline-md text-espresso mb-1">
+            MUTA Travel
+          </h3>
+          <p class="text-terracotta font-label-caps text-label-caps uppercase">
+            Turismo Sostenible &amp; Experiencias
+          </p>
+        </div>
+        <p class="text-soft-espresso font-body-lg">
+          Desarrollamos una estrategia de narrativa visual centrada en el
+          impacto local. El reto era elevar la percepción de marca hacia un
+          segmento premium sin perder la esencia orgánica.
+        </p>
+        <div class="grid grid-cols-2 gap-4 py-6 border-y border-hairline">
+          <div>
+            <span class="block text-espresso font-bold text-headline-sm"
+              >+45%</span
+            >
+            <span class="text-label-caps text-soft-espresso uppercase"
+              >Engagement Rate</span
+            >
+          </div>
+          <div>
+            <span class="block text-espresso font-bold text-headline-sm"
+              >2.4k</span
+            >
+            <span class="text-label-caps text-soft-espresso uppercase"
+              >Nuevos Seguidores Orgánicos</span
+            >
+          </div>
+        </div>
+        <p class="text-body-md italic text-soft-espresso">
+          "Sussi logró traducir nuestros valores en imágenes y palabras que
+          realmente resuenan con nuestros clientes."
+        </p>
+      </div>
+    </div>
+
+    <!-- Secondary Cases Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
+      {
+        secondaryCases.map((item) => (
+          <div class="group cursor-pointer">
+            <div class="aspect-square bg-parchment rounded-lg mb-3 overflow-hidden border border-hairline relative">
+              <Image
+                src={item.img}
+                alt={item.alt}
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <p class="font-label-caps text-center text-espresso uppercase tracking-wider">
+              {item.label}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="text-center">
+      <Button class="mx-auto">
+        ¿Tu marca podría estar aquí? Cuéntame tu historia
+        <Icon name="trending_flat" />
+      </Button>
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import Container from "./Container.astro";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+import ugc1 from "../assets/img/ugc-1.jpg";
+import ugc2 from "../assets/img/ugc-2.jpg";
+import ugc3 from "../assets/img/ugc-3.jpg";
+import ugc4 from "../assets/img/ugc-4.jpg";
+
+const clips = [
+  {
+    img: ugc1,
+    alt: "Manos sirviendo una bebida caliente en una taza de cerámica en un café acogedor.",
+  },
+  {
+    img: ugc2,
+    alt: "Primer plano de una tela texturizada acariciada por una mano bajo luz natural.",
+  },
+  {
+    img: ugc3,
+    alt: "Plato emplatado en un restaurante de alta cocina con iluminación cálida y envolvente.",
+  },
+  {
+    img: ugc4,
+    alt: "Espacio de trabajo moderno con laptop, libreta y café bajo luz suave.",
+  },
+];
+---
+
+<section class="py-section-padding bg-linen">
+  <Container>
+    <div class="max-w-[760px] mx-auto text-center space-y-6 mb-16">
+      <span
+        class="text-terracotta font-label-caps text-label-caps uppercase tracking-widest"
+      >
+        Cuando la cámara la cargo yo
+      </span>
+      <h2 class="font-display-lg text-headline-md text-espresso">
+        Contenido con Ojo Crítico
+      </h2>
+      <p class="text-soft-espresso font-body-lg">
+        Más allá de la estrategia, me apasiona la ejecución. Creo contenido
+        dinámico (UGC) que se siente real, cercano y estéticamente impecable.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      {
+        clips.map((clip, index) => (
+          <div
+            class:list={[
+              "aspect-[9/16] bg-parchment rounded-lg overflow-hidden relative group",
+              index % 2 === 1 && "mt-8",
+            ]}
+          >
+            <Image
+              src={clip.img}
+              alt={clip.alt}
+              loading="lazy"
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <Icon
+                name="play_circle"
+                class="text-white text-4xl opacity-70 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="text-center">
+      <p class="font-body-md text-soft-espresso mb-6">
+        ¿Tu marca necesita una voz así?
+      </p>
+      <Button href="#contact" class="mx-auto w-fit">
+        Escríbeme <Icon name="arrow_outward" />
+      </Button>
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,32 @@
+---
+const socials = [
+  { label: "Email", href: "mailto:hola@sussanacorrea.com" },
+  { label: "LinkedIn", href: "#" },
+  { label: "Instagram", href: "https://instagram.com/#" },
+];
+---
+
+<footer
+  class="bg-surface-container-high py-section-padding px-gutter w-full flex flex-col items-center gap-stack-lg border-t border-hairline"
+>
+  <div class="flex flex-col items-center gap-4">
+    <span class="font-display-lg text-headline-md text-primary">
+      Sussana Correa
+    </span>
+    <div class="flex gap-8">
+      {
+        socials.map((social) => (
+          <a
+            class="text-on-surface-variant hover:text-secondary transition-colors font-label-caps uppercase tracking-widest"
+            href={social.href}
+          >
+            {social.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <p class="text-on-surface-variant text-body-md opacity-60">
+    © Sussana Correa. All rights reserved.
+  </p>
+</footer>

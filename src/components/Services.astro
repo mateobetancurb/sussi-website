@@ -1,0 +1,75 @@
+---
+import Container from "./Container.astro";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+
+const services = [
+  {
+    icon: "strategy",
+    title: "Estrategia de contenido",
+    body: "Definimos el norte de tu comunicación alineado a tus objetivos de negocio.",
+    border: "border-b md:border-b-0 md:border-r border-hairline",
+  },
+  {
+    icon: "calendar_today",
+    title: "Planeación editorial",
+    body: "Calendarios detallados que aseguran que siempre tengas algo valioso que decir.",
+    border: "border-b md:border-b-0 md:border-r border-hairline",
+  },
+  {
+    icon: "movie_edit",
+    title: "Producción de contenido",
+    body: "Creación visual de alto nivel: desde guiones hasta la edición final.",
+    border: "border-b md:border-b-0",
+  },
+  {
+    icon: "analytics",
+    title: "Revisión de métricas",
+    body: "Reportes mensuales para entender qué funciona y ajustar el camino.",
+    border: "border-b md:border-b-0 md:border-r border-hairline",
+  },
+  {
+    icon: "publish",
+    title: "Gestión y publicación",
+    body: "Me encargo de que tu contenido llegue a tu audiencia sin que tú te preocupes.",
+    border: "",
+  },
+];
+---
+
+<section class="py-section-padding bg-parchment" id="services">
+  <Container>
+    <div class="max-w-[760px] mx-auto text-center space-y-4 mb-16">
+      <h2 class="font-headline-md text-headline-md text-espresso">
+        ¿Qué incluye trabajar conmigo?
+      </h2>
+      <p class="text-soft-espresso font-body-lg">
+        Delegar no es solo soltar tareas, es darle un propósito claro a cada
+        acción. He diseñado estos servicios para que tu marca respire coherencia
+        en cada plataforma.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        services.map((service) => (
+          <div class:list={["p-8 space-y-4", service.border]}>
+            <Icon name={service.icon} class="text-terracotta" />
+            <h3 class="font-headline-sm text-espresso">{service.title}</h3>
+            <p class="text-body-md text-soft-espresso">{service.body}</p>
+          </div>
+        ))
+      }
+      <!-- CTA Card -->
+      <div
+        class="p-8 bg-linen rounded-lg border border-hairline flex flex-col justify-center items-center text-center space-y-4"
+      >
+        <p class="font-body-md italic text-soft-espresso">
+          ¿No sabes exactamente qué necesitas?
+        </p>
+        <Button variant="secondary" href="#contact" class="w-full">
+          Escríbeme <Icon name="mail" />
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

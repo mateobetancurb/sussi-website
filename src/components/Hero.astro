@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import Container from "./Container.astro";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+import heroPortrait from "../assets/img/hero-portrait.jpg";
+---
+
+<section class="py-section-padding bg-linen overflow-hidden" id="hero">
+  <Container class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="space-y-6">
+      <span
+        class="text-terracotta font-label-caps text-label-caps uppercase tracking-[0.2em] block"
+      >
+        Estrategia · Producción · Gestión de contenido digital
+      </span>
+      <h1
+        class="font-display-lg text-display-lg-mobile md:text-display-lg text-espresso"
+      >
+        Creo en tu marca. Logremos que los demás también.
+      </h1>
+      <p class="text-soft-espresso font-body-lg max-w-md">
+        Soy Sussana, estratega digital con más de 5 años transformando historias
+        en activos digitales que conectan, venden y perduran. Mi enfoque combina
+        la rigurosidad analítica con una estética editorial cálida y humana.
+      </p>
+      <Button href="#contact" class="w-fit group">
+        ¿Hablamos?
+        <Icon name="arrow_forward" class="transition-transform group-hover:translate-x-1" />
+      </Button>
+    </div>
+    <div class="relative">
+      <div
+        class="aspect-[4/5] rounded-lg overflow-hidden bg-parchment border border-hairline"
+      >
+        <Image
+          src={heroPortrait}
+          alt="Retrato editorial de Sussana Correa en un estudio luminoso de estética cálida y natural."
+          loading="eager"
+          fetchpriority="high"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <!-- Decorative element -->
+      <div
+        class="absolute -bottom-6 -left-6 w-24 h-24 bg-terracotta opacity-10 rounded-full blur-2xl"
+      >
+      </div>
+    </div>
+  </Container>
+</section>
