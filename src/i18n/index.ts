@@ -49,7 +49,7 @@ export interface UIStrings {
     ariaLabel: string;
     message: string;
   };
-  header: { nav: NavLink[]; menuLabel: string };
+  header: { nav: NavLink[]; menuLabel: string; closeMenuLabel: string };
   hero: {
     eyebrow: string;
     title: string;

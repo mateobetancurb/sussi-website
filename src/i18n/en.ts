@@ -18,6 +18,7 @@ const en: UIStrings = {
       { label: "Contact", href: "#contact" },
     ],
     menuLabel: "Open menu",
+    closeMenuLabel: "Close menu",
   },
   hero: {
     eyebrow: "Strategy · Production · Digital content management",
