@@ -1,14 +1,17 @@
 ---
 import Button from "./Button.astro";
 import Icon from "./Icon.astro";
-import { getTranslations, type Lang } from "../i18n";
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+import { getTranslations, getWhatsappUrl, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const t = getTranslations(lang).contact;
+const translations = getTranslations(lang);
+const t = translations.contact;
+const whatsappUrl = getWhatsappUrl(translations.floatingWhatsapp.message);
 ---
 
 <section class="py-section-padding bg-linen border-t border-hairline" id="contact">
@@ -25,8 +28,14 @@ const t = getTranslations(lang).contact;
       </p>
     </div>
     <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-      <Button href="https://wa.me/#" class="w-full md:w-auto px-12">
-        {t.whatsapp} <Icon name="chat" />
+      <Button
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={translations.floatingWhatsapp.ariaLabel}
+        class="w-full md:w-auto px-12"
+      >
+        {t.whatsapp} <WhatsAppIcon />
       </Button>
       <Button
         variant="secondary"

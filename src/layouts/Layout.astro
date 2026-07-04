@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
-import { getTranslations, type Lang } from "../i18n";
+import WhatsAppIcon from "../components/WhatsAppIcon.astro";
+import { getTranslations, getWhatsappUrl, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
@@ -12,6 +13,7 @@ const { lang, title, description } = Astro.props;
 const t = getTranslations(lang);
 const pageTitle = title ?? t.meta.title;
 const pageDescription = description ?? t.meta.description;
+const whatsappUrl = getWhatsappUrl(t.floatingWhatsapp.message);
 ---
 
 <!doctype html>
@@ -44,6 +46,17 @@ const pageDescription = description ?? t.meta.description;
   </head>
   <body class="font-body-md text-on-surface">
     <slot />
+
+    <a
+      class="fixed right-5 bottom-5 z-[60] inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-whatsapp-border bg-whatsapp px-5 py-4 font-button text-button text-whatsapp-on transition-colors hover:bg-whatsapp-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-whatsapp"
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={t.floatingWhatsapp.ariaLabel}
+    >
+      <WhatsAppIcon />
+      <span class="hidden sm:inline">{t.floatingWhatsapp.label}</span>
+    </a>
 
     <script>
       // Smooth reveal on scroll (lightweight IntersectionObserver)

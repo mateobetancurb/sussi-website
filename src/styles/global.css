@@ -61,6 +61,10 @@
   --color-soft-espresso: #5c4a3a;
   --color-terracotta: #c97b5a;
   --color-adobe: #8b4a30;
+  --color-whatsapp: #1f7a4f;
+  --color-whatsapp-hover: #17613e;
+  --color-whatsapp-on: #fff8f6;
+  --color-whatsapp-border: #9fcab5;
   /* Fine 1px container border (replaces the repeated border-[#DED4C7]) */
   --color-hairline: #ded4c7;
 
