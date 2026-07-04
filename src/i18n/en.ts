@@ -62,7 +62,7 @@ const en: UIStrings = {
     featuredAlt:
       "Traveler facing an Andean sunset among misty mountains — sustainable tourism, MUTA Travel.",
     featuredQuote:
-      "\"Sussi managed to translate our values into images and words that truly resonate with our customers.\"",
+      '"Sussi managed to translate our values into images and words that truly resonate with our customers."',
     statLabels: ["Engagement Rate", "New Organic Followers"],
     cta: "Could your brand be here? Tell me your story",
     cases: [
@@ -117,8 +117,7 @@ const en: UIStrings = {
   testimonials: {
     heading: "What those who've created with me say",
     videoLabel: "Testimonial: Founder of Sabrositas",
-    imageAlt:
-      "Frame from a video testimonial: an entrepreneur smiles in her well-lit shop.",
+    imageAlt: "Frame from a video testimonial: an entrepreneur smiles in her well-lit shop.",
     items: [
       {
         quote:
@@ -126,18 +125,15 @@ const en: UIStrings = {
         author: "— Andrea G., Sabrositas",
       },
       {
-        quote:
-          "Her ability to plan for the long term gave us the peace of mind we needed to grow.",
+        quote: "Her ability to plan for the long term gave us the peace of mind we needed to grow.",
         author: "— Jorge L., MUTA Travel",
       },
       {
-        quote:
-          "Elegance, polish and results. Her reports are clear and always bring new ideas.",
+        quote: "Elegance, polish and results. Her reports are clear and always bring new ideas.",
         author: "— Mariana V., Hospitality",
       },
       {
-        quote:
-          "She has an eye for detail that's very hard to find in today's digital world.",
+        quote: "She has an eye for detail that's very hard to find in today's digital world.",
         author: "— Carlos R., CMV Hospital",
       },
     ],
