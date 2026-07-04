@@ -155,14 +155,12 @@ const es: UIStrings = {
       "Creo profundamente en el poder de las redes cuando se usan con propósito. Si estás listo para elevar tu presencia digital, hablemos de cómo podemos trabajar juntos.",
     whatsapp: "WhatsApp",
     instagram: "Instagram",
-    directLine: "O escríbeme directamente a",
-    email: "hola@sussanacorrea.com",
   },
   footer: {
     socials: [
-      { label: "Email", href: "mailto:hola@sussanacorrea.com" },
-      { label: "LinkedIn", href: "#" },
-      { label: "Instagram", href: "https://instagram.com/#" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/sussanacorrea/" },
+      { label: "Instagram", href: "https://www.instagram.com/sussanacorreac/" },
+      { label: "TikTok", href: "https://www.tiktok.com/@sussanacorrea" },
     ],
     copyright: "© Sussana Correa. Todos los derechos reservados.",
   },

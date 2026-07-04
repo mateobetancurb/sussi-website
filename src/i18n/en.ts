@@ -150,14 +150,12 @@ const en: UIStrings = {
       "I deeply believe in the power of social media when used with purpose. If you're ready to elevate your digital presence, let's talk about how we can work together.",
     whatsapp: "WhatsApp",
     instagram: "Instagram",
-    directLine: "Or write to me directly at",
-    email: "hola@sussanacorrea.com",
   },
   footer: {
     socials: [
-      { label: "Email", href: "mailto:hola@sussanacorrea.com" },
-      { label: "LinkedIn", href: "#" },
-      { label: "Instagram", href: "https://instagram.com/#" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/sussanacorrea/" },
+      { label: "Instagram", href: "https://www.instagram.com/sussanacorreac/" },
+      { label: "TikTok", href: "https://www.tiktok.com/@sussanacorrea" },
     ],
     copyright: "© Sussana Correa. All rights reserved.",
   },

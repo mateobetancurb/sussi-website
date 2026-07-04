@@ -102,8 +102,6 @@ export interface UIStrings {
     intro: string;
     whatsapp: string;
     instagram: string;
-    directLine: string;
-    email: string;
   };
   footer: { socials: Social[]; copyright: string };
 }
