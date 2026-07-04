@@ -4,14 +4,16 @@ import Container from "./Container.astro";
 import Button from "./Button.astro";
 import Icon from "./Icon.astro";
 import heroPortrait from "../assets/img/sussana.webp";
-import { getTranslations, type Lang } from "../i18n";
+import { getTranslations, getWhatsappUrl, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const t = getTranslations(lang).hero;
+const translations = getTranslations(lang);
+const t = translations.hero;
+const whatsappUrl = getWhatsappUrl(translations.floatingWhatsapp.message);
 ---
 
 <section class="py-section-padding bg-linen overflow-hidden" id="hero">
@@ -30,7 +32,12 @@ const t = getTranslations(lang).hero;
       <p class="text-soft-espresso font-body-lg max-w-md">
         {t.intro}
       </p>
-      <Button href="#contact" class="w-fit group">
+      <Button
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-fit group"
+      >
         {t.cta}
         <Icon name="arrow_forward" class="transition-transform group-hover:translate-x-1" />
       </Button>

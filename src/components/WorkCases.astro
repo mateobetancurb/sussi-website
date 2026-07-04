@@ -9,14 +9,16 @@ import sabrositas from "../assets/img/case-sabrositas.jpg";
 import hotCheese from "../assets/img/case-hot-cheese.jpg";
 import monteMesa from "../assets/img/case-monte-mesa.jpg";
 import hoteleria from "../assets/img/case-hoteleria.jpg";
-import { getTranslations, type Lang } from "../i18n";
+import { getTranslations, getWhatsappUrl, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const t = getTranslations(lang).workCases;
+const translations = getTranslations(lang);
+const t = translations.workCases;
+const whatsappUrl = getWhatsappUrl(translations.floatingWhatsapp.message);
 
 // Image order stays here; labels/alts come from the translation dictionary.
 const caseImages = [cmv, sabrositas, hotCheese, monteMesa, hoteleria];
@@ -105,7 +107,12 @@ const secondaryCases = caseImages.map((img, i) => ({ img, ...t.cases[i] }));
     </div>
 
     <div class="text-center">
-      <Button class="mx-auto">
+      <Button
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mx-auto"
+      >
         {t.cta}
         <Icon name="trending_flat" />
       </Button>

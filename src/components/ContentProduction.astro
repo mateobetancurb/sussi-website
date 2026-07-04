@@ -7,14 +7,16 @@ import ugc1 from "../assets/img/ugc-1.jpg";
 import ugc2 from "../assets/img/ugc-2.jpg";
 import ugc3 from "../assets/img/ugc-3.jpg";
 import ugc4 from "../assets/img/ugc-4.jpg";
-import { getTranslations, type Lang } from "../i18n";
+import { getTranslations, getWhatsappUrl, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const t = getTranslations(lang).contentProduction;
+const translations = getTranslations(lang);
+const t = translations.contentProduction;
+const whatsappUrl = getWhatsappUrl(translations.floatingWhatsapp.message);
 
 const clipImages = [ugc1, ugc2, ugc3, ugc4];
 const clips = clipImages.map((img, i) => ({ img, alt: t.clipAlts[i] }));
@@ -64,7 +66,12 @@ const clips = clipImages.map((img, i) => ({ img, alt: t.clipAlts[i] }));
       <p class="font-body-md text-soft-espresso mb-6">
         {t.ctaQuestion}
       </p>
-      <Button href="#contact" class="mx-auto w-fit">
+      <Button
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mx-auto w-fit"
+      >
         {t.ctaButton} <Icon name="arrow_outward" />
       </Button>
     </div>

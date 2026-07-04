@@ -2,14 +2,16 @@
 import Container from "./Container.astro";
 import Button from "./Button.astro";
 import Icon from "./Icon.astro";
-import { getTranslations, type Lang } from "../i18n";
+import { getTranslations, getWhatsappUrl, type Lang } from "../i18n";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const t = getTranslations(lang).services;
+const translations = getTranslations(lang);
+const t = translations.services;
+const whatsappUrl = getWhatsappUrl(translations.floatingWhatsapp.message);
 
 // Structural config (icons + border classes) stays here; copy comes from the
 // translation dictionary and is zipped in by index.
@@ -51,7 +53,13 @@ const services = serviceMeta.map((meta, i) => ({ ...meta, ...t.items[i] }));
         <p class="font-body-md italic text-soft-espresso">
           {t.ctaQuestion}
         </p>
-        <Button variant="secondary" href="#contact" class="w-full">
+        <Button
+          variant="secondary"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full"
+        >
           {t.ctaButton} <Icon name="mail" />
         </Button>
       </div>
