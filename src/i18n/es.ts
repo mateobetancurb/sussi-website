@@ -66,8 +66,7 @@ const es: UIStrings = {
     featuredSubtitle: "Turismo Sostenible & Experiencias",
     featuredDescription:
       "Desarrollamos una estrategia de narrativa visual centrada en el impacto local. El reto era elevar la percepción de marca hacia un segmento premium sin perder la esencia orgánica.",
-    featuredAlt:
-      "Viajero ante un atardecer andino entre montañas neblinosas — turismo sostenible MUTA Travel.",
+    featuredAlt: "Foto de perfil de Instagram de MUTA Travel.",
     featuredQuote:
       '"Sussi logró traducir nuestros valores en imágenes y palabras que realmente resuenan con nuestros clientes."',
     statLabels: ["Engagement Rate", "Nuevos Seguidores Orgánicos"],
@@ -75,19 +74,19 @@ const es: UIStrings = {
     cases: [
       {
         label: "CMV Hospital",
-        alt: "Interior cálido de una clínica veterinaria con un perro tranquilo — CMV Hospital.",
+        alt: "Foto de perfil de Instagram de CMV Hospital.",
       },
       {
         label: "Sabrositas",
-        alt: "Primer plano editorial de snacks artesanales sobre mantel de lino — Sabrositas.",
+        alt: "Foto de perfil de Instagram de Sabrositas.",
       },
       {
         label: "Hot Cheese",
-        alt: "Tabla de quesos con miel y frutos secos bajo luz dorada — Hot Cheese.",
+        alt: "Foto de perfil de Instagram de Hot Cheese.",
       },
       {
         label: "Monte & Mesa",
-        alt: "Mesa de madera en un refugio de montaña con velas y textiles cálidos — Monte & Mesa.",
+        alt: "Foto de perfil de Instagram de Monte & Mesa.",
       },
     ],
   },
