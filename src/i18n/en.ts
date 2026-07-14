@@ -88,10 +88,6 @@ const en: UIStrings = {
         label: "Monte & Mesa",
         alt: "Wooden table in a mountain lodge with candles and warm textiles — Monte & Mesa.",
       },
-      {
-        label: "Hospitality",
-        alt: "Boutique hotel lobby with organic materials and soft lighting — hospitality sector.",
-      },
     ],
   },
   archive: {

@@ -8,7 +8,6 @@ import cmv from "../assets/img/case-cmv-hospital.jpg";
 import sabrositas from "../assets/img/case-sabrositas.jpg";
 import hotCheese from "../assets/img/case-hot-cheese.jpg";
 import monteMesa from "../assets/img/case-monte-mesa.jpg";
-import hoteleria from "../assets/img/case-hoteleria.jpg";
 import { getTranslations, getWhatsappUrl, type Lang } from "../i18n";
 
 interface Props {
@@ -20,9 +19,12 @@ const translations = getTranslations(lang);
 const t = translations.workCases;
 const whatsappUrl = getWhatsappUrl(translations.floatingWhatsapp.message);
 
-// Image order stays here; labels/alts come from the translation dictionary.
-const caseImages = [cmv, sabrositas, hotCheese, monteMesa, hoteleria];
-const secondaryCases = caseImages.map((img, i) => ({ img, ...t.cases[i] }));
+const secondaryCases = [
+  { img: cmv, href: "https://www.instagram.com/animalhospitalantioquia/" },
+  { img: sabrositas, href: "https://www.instagram.com/sabrositas.co/" },
+  { img: hotCheese, href: "https://www.instagram.com/hotcheese.co/" },
+  { img: monteMesa, href: "https://www.instagram.com/monteymesa/" },
+].map((item, i) => ({ ...item, ...t.cases[i] }));
 ---
 
 <section class="py-section-padding bg-linen" id="work">
@@ -39,7 +41,10 @@ const secondaryCases = caseImages.map((img, i) => ({ img, ...t.cases[i] }));
     </div>
 
     <!-- Featured Case: MUTA Travel -->
-    <div
+    <a
+      href="https://www.instagram.com/muta.travel/"
+      target="_blank"
+      rel="noopener noreferrer"
       class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 bg-parchment rounded-lg overflow-hidden border border-hairline"
     >
       <div class="relative h-full min-h-[400px]">
@@ -83,13 +88,18 @@ const secondaryCases = caseImages.map((img, i) => ({ img, ...t.cases[i] }));
           {t.featuredQuote}
         </p>
       </div>
-    </div>
+    </a>
 
     <!-- Secondary Cases Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
       {
         secondaryCases.map((item) => (
-          <div class="group cursor-pointer">
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block"
+          >
             <div class="aspect-square bg-parchment rounded-lg mb-3 overflow-hidden border border-hairline relative">
               <Image
                 src={item.img}
@@ -101,7 +111,7 @@ const secondaryCases = caseImages.map((img, i) => ({ img, ...t.cases[i] }));
             <p class="font-label-caps text-center text-espresso uppercase tracking-wider">
               {item.label}
             </p>
-          </div>
+          </a>
         ))
       }
     </div>

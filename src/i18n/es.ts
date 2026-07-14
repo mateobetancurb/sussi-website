@@ -89,10 +89,6 @@ const es: UIStrings = {
         label: "Monte & Mesa",
         alt: "Mesa de madera en un refugio de montaña con velas y textiles cálidos — Monte & Mesa.",
       },
-      {
-        label: "Hotelería",
-        alt: "Lobby de un hotel boutique con materiales orgánicos e iluminación suave — sector hotelería.",
-      },
     ],
   },
   archive: {
