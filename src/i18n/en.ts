@@ -65,8 +65,7 @@ const en: UIStrings = {
     featuredSubtitle: "Sustainable Tourism & Experiences",
     featuredDescription:
       "We developed a visual storytelling strategy centered on local impact. The challenge was to elevate brand perception toward a premium segment without losing its organic essence.",
-    featuredAlt:
-      "Traveler facing an Andean sunset among misty mountains — sustainable tourism, MUTA Travel.",
+    featuredAlt: "Instagram profile picture of MUTA Travel.",
     featuredQuote:
       '"Sussi managed to translate our values into images and words that truly resonate with our customers."',
     statLabels: ["Engagement Rate", "New Organic Followers"],
@@ -74,23 +73,19 @@ const en: UIStrings = {
     cases: [
       {
         label: "CMV Hospital",
-        alt: "Warm interior of a veterinary clinic with a calm dog — CMV Hospital.",
+        alt: "Instagram profile picture of CMV Hospital.",
       },
       {
         label: "Sabrositas",
-        alt: "Editorial close-up of artisanal snacks on a linen tablecloth — Sabrositas.",
+        alt: "Instagram profile picture of Sabrositas.",
       },
       {
         label: "Hot Cheese",
-        alt: "Cheese board with honey and nuts under golden light — Hot Cheese.",
+        alt: "Instagram profile picture of Hot Cheese.",
       },
       {
         label: "Monte & Mesa",
-        alt: "Wooden table in a mountain lodge with candles and warm textiles — Monte & Mesa.",
-      },
-      {
-        label: "Hospitality",
-        alt: "Boutique hotel lobby with organic materials and soft lighting — hospitality sector.",
+        alt: "Instagram profile picture of Monte & Mesa.",
       },
     ],
   },
